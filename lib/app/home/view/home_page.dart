@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../components/components.dart';
 import '../bloc/bloc.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key, required this.title});
-
-  final String title;
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -16,9 +15,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+      backgroundColor: AppColors.primaryBackground,
       body: Center(
         child: BlocBuilder<AppBloc, AppState>(
           builder: (context, state) {
@@ -66,13 +63,15 @@ class _HomePageState extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           FloatingActionButton(
-            onPressed: () => BlocProvider.of<AppBloc>(context).add(Decrement()),
+            heroTag: 'heroTag1',
             tooltip: 'Decrement',
+            onPressed: () => BlocProvider.of<AppBloc>(context).add(Decrement()),
             child: const Icon(Icons.remove),
           ),
           FloatingActionButton(
-            onPressed: () => BlocProvider.of<AppBloc>(context).add(Increment()),
+            heroTag: 'heroTag2',
             tooltip: 'Increment',
+            onPressed: () => BlocProvider.of<AppBloc>(context).add(Increment()),
             child: const Icon(Icons.add),
           ),
         ],
