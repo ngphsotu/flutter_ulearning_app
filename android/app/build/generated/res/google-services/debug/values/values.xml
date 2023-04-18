@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">3356794569-ogrkjdbllbtj3jdasgm1r9404tefrij6.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">3356794569</string>
+    <string name="google_api_key" translatable="false">AIzaSyBA6hKQhgJsWfqMXEk-C12bQ6P3k9ugOk4</string>
+    <string name="google_app_id" translatable="false">1:3356794569:android:d9051fe763c4cf3ba13718</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBA6hKQhgJsWfqMXEk-C12bQ6P3k9ugOk4</string>
+    <string name="google_storage_bucket" translatable="false">ulearning-app-b23c7.appspot.com</string>
+    <string name="project_id" translatable="false">ulearning-app-b23c7</string>
+</resources>

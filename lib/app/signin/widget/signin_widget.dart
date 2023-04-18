@@ -57,7 +57,7 @@ Widget reusableText(String text) {
     child: Text(
       text,
       style: TextStyle(
-        color: Colors.grey.withOpacity(.5),
+        color: AppColors.primaryThirdElementText,
         fontSize: 14.sp,
         fontFamily: 'Avenir',
         fontWeight: FontWeight.normal,

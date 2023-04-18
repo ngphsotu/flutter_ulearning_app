@@ -14,6 +14,7 @@ class ReusableTextFormField extends StatefulWidget {
   final Widget? prefixIcon;
   final TextInputType? keyboardType;
   final TextEditingController? controller;
+  final Function(String value)? onChanged;
 
   const ReusableTextFormField({
     super.key,
@@ -26,6 +27,7 @@ class ReusableTextFormField extends StatefulWidget {
     this.keyboardType,
     this.autocorrect = true,
     this.obscureText = false,
+    this.onChanged,
   });
 
   @override
@@ -37,6 +39,7 @@ class _ReusableTextFormFieldState extends State<ReusableTextFormField> {
   Widget build(BuildContext context) {
     return TextFormField(
       maxLines: widget.maxLine,
+      onChanged: (value) => widget.onChanged!(value),
       autocorrect: widget.autocorrect,
       obscureText: widget.obscureText,
       keyboardType: widget.keyboardType,

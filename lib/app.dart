@@ -16,6 +16,7 @@ class App extends StatelessWidget {
       providers: [
         BlocProvider(lazy: false, create: (context) => WelcomeBloc()),
         BlocProvider(lazy: false, create: (context) => AppBloc()),
+        BlocProvider(create: (context) => SignInBloc()),
       ],
       child: ScreenUtilInit(
         builder: (context, child) => MaterialApp(

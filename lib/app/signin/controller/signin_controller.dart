@@ -1,7 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_ulearning_app/app/signin/bloc/signin_bloc.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+import '../signin.dart';
 
 class SignInController {
   final BuildContext context;
@@ -12,7 +13,7 @@ class SignInController {
     try {
       if (type == 'email') {
         // BlocProvider.of<SigninBloc>(context).state
-        final state = context.read<SigninBloc>().state;
+        final state = context.read<SignInBloc>().state;
         String emailAddress = state.email;
         String password = state.password;
 
