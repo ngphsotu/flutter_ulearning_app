@@ -7,10 +7,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../common.dart';
 import '/app/welcome/welcome.dart';
 
+// * WELCOME PAGE WIDGETS
+
 PageController pageController = PageController(initialPage: 0);
 
 // * Build Page
-Column buildPage(
+Column buildWelcomePage(
   int index,
   BuildContext context,
   String title,
@@ -71,7 +73,7 @@ Column buildPage(
               //         builder: (context) => const HomePage(title: 'Home')),
               //  );
               Navigator.of(context)
-                  .pushNamedAndRemoveUntil('signIn', (route) => false);
+                  .pushNamedAndRemoveUntil('/signIn', (route) => false);
             }
           },
         ),
@@ -109,6 +111,8 @@ DotsIndicator buildDots(WelcomeState state) {
 //     ),
 //   );
 // }
+
+// * SIGNIN PAGE WIDGETS
 
 // * Build Appbar
 AppBar buildAppBar(String type) {
@@ -226,3 +230,16 @@ Widget forgotPassword() {
 //     ),
 //   );
 // }
+
+// * HOME PAGE WIDGETS
+Widget buildHomePage(int index) {
+  List<Widget> widget = [
+    const Center(child: Text('Home')),
+    const Center(child: Text('Search')),
+    const Center(child: Text('Course')),
+    const Center(child: Text('Chat')),
+    const Center(child: Text('Profile')),
+  ];
+
+  return widget[index];
+}

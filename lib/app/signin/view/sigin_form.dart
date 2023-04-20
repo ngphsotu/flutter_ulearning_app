@@ -73,7 +73,7 @@ Column formSignIn(BuildContext context) {
                 onPressed: () {
                   print('Press Signup Button');
                   // SignUpController(context: context).handleEmailSignUp();
-                  Navigator.of(context).pushNamed('signUp');
+                  Navigator.of(context).pushNamed('/signUp');
                   // Navigator.of(context).pushNamedAndRemoveUntil(
                   //     'signUp', (route) => false);
                 },

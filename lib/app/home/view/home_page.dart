@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+// ignore_for_file: avoid_print
 
-import '../../../common/common.dart';
-import '../bloc/bloc.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '/common/common.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -12,69 +13,121 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _index = 0;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.primaryBackground,
-      body: Center(
-        child: BlocBuilder<AppBloc, AppState>(
-          builder: (context, state) {
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                const Text(
-                  'You have pushed the button this many times:',
+    return Container(
+      color: AppColors.primaryBackground,
+      child: SafeArea(
+        child: Scaffold(
+          body: buildHomePage(_index),
+          bottomNavigationBar: Container(
+            width: 375.w,
+            height: 58.h,
+            decoration: BoxDecoration(
+              color: AppColors.primaryElement,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20.h),
+                topRight: Radius.circular(20.h),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(.1),
+                  blurRadius: 1,
+                  spreadRadius: 1,
                 ),
-                Text(
-                  '${BlocProvider.of<AppBloc>(context).state.counter}',
-                  style: Theme.of(context).textTheme.headlineMedium,
+              ],
+            ),
+            child: BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
+              elevation: 0,
+              currentIndex: _index,
+              showSelectedLabels: false,
+              showUnselectedLabels: false,
+              selectedItemColor: AppColors.primaryElement,
+              unselectedItemColor: AppColors.primaryFourthElementText,
+              onTap: (value) {
+                setState(() {
+                  _index = value;
+                  print(_index);
+                });
+              },
+              items: [
+                BottomNavigationBarItem(
+                  label: 'home',
+                  icon: SizedBox(
+                    width: 15.w,
+                    height: 15.h,
+                    child: Image.asset('assets/icons/home.png'),
+                  ),
+                  activeIcon: SizedBox(
+                    child: Image.asset(
+                      'assets/icons/home.png',
+                      color: AppColors.primaryElement,
+                    ),
+                  ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Expanded(
-                        child: ElevatedButton.icon(
-                          onPressed: () =>
-                              context.read<AppBloc>().add(Decrement()),
-                          icon: const Icon(Icons.remove),
-                          label: const Text('Decrement'),
-                        ),
-                      ),
-                      const SizedBox(width: 20),
-                      Expanded(
-                        child: ElevatedButton.icon(
-                          onPressed: () =>
-                              context.read<AppBloc>().add(Increment()),
-                          icon: const Icon(Icons.add),
-                          label: const Text('Increment'),
-                        ),
-                      ),
-                    ],
+                BottomNavigationBarItem(
+                  label: 'search',
+                  icon: SizedBox(
+                    width: 15.w,
+                    height: 15.h,
+                    child: Image.asset('assets/icons/search2.png'),
+                  ),
+                  activeIcon: SizedBox(
+                    child: Image.asset(
+                      'assets/icons/search2.png',
+                      color: AppColors.primaryElement,
+                    ),
+                  ),
+                ),
+                BottomNavigationBarItem(
+                  label: 'course',
+                  icon: SizedBox(
+                    width: 15.w,
+                    height: 15.h,
+                    child: Image.asset('assets/icons/play-circle1.png'),
+                  ),
+                  activeIcon: SizedBox(
+                    child: Image.asset(
+                      'assets/icons/play-circle1.png',
+                      color: AppColors.primaryElement,
+                    ),
+                  ),
+                ),
+                BottomNavigationBarItem(
+                  label: 'chat',
+                  icon: SizedBox(
+                    width: 15.w,
+                    height: 15.h,
+                    child: Image.asset('assets/icons/message-circle.png'),
+                  ),
+                  activeIcon: SizedBox(
+                    child: Image.asset(
+                      'assets/icons/message-circle.png',
+                      color: AppColors.primaryElement,
+                    ),
+                  ),
+                ),
+                BottomNavigationBarItem(
+                  label: 'profile',
+                  icon: SizedBox(
+                    width: 15.w,
+                    height: 15.h,
+                    child: Image.asset('assets/icons/person2.png'),
+                  ),
+                  activeIcon: SizedBox(
+                    child: Image.asset(
+                      'assets/icons/person2.png',
+                      color: AppColors.primaryElement,
+                    ),
                   ),
                 ),
               ],
-            );
-          },
+            ),
+          ),
         ),
-      ),
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          FloatingActionButton(
-            heroTag: 'heroTag1',
-            tooltip: 'Decrement',
-            onPressed: () => BlocProvider.of<AppBloc>(context).add(Decrement()),
-            child: const Icon(Icons.remove),
-          ),
-          FloatingActionButton(
-            heroTag: 'heroTag2',
-            tooltip: 'Increment',
-            onPressed: () => BlocProvider.of<AppBloc>(context).add(Increment()),
-            child: const Icon(Icons.add),
-          ),
-        ],
       ),
     );
   }

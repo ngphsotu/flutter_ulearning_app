@@ -36,7 +36,7 @@ class _WelcomePageState extends State<WelcomePage> {
                       print('Index value is $index');
                     },
                     children: [
-                      buildPage(
+                      buildWelcomePage(
                         1,
                         context,
                         'First see learning',
@@ -44,7 +44,7 @@ class _WelcomePageState extends State<WelcomePage> {
                         'assets/images/reading.png',
                         'Next',
                       ),
-                      buildPage(
+                      buildWelcomePage(
                         2,
                         context,
                         'Connect With Everyone',
@@ -52,7 +52,7 @@ class _WelcomePageState extends State<WelcomePage> {
                         'assets/images/boy.png',
                         'Next',
                       ),
-                      buildPage(
+                      buildWelcomePage(
                         3,
                         context,
                         'Always Fascinated Learning',
