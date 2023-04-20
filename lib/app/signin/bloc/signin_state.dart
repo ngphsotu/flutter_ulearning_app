@@ -14,6 +14,6 @@ class SignInState {
   }
 }
 
-class SigninInitial extends SignInState {
-  SigninInitial({required super.email, required super.password});
+class SignInInitial extends SignInState {
+  SignInInitial({required super.email, required super.password});
 }

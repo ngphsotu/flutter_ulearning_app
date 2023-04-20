@@ -40,7 +40,7 @@ class _ReusableButtonState extends State<ReusableButton> {
           widget.buttonName,
           style: TextStyle(
             color: widget.textColor,
-            fontSize: 15.sp,
+            fontSize: 18.sp,
             fontFamily: 'Avenir',
             fontWeight: FontWeight.normal,
           ),

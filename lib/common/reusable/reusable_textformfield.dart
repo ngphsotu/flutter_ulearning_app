@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../components.dart';
+import '../common.dart';
 
 // * Reusable Text Form Field
 class ReusableTextFormField extends StatefulWidget {
@@ -50,7 +50,7 @@ class _ReusableTextFormFieldState extends State<ReusableTextFormField> {
         prefixIcon: widget.prefixIcon,
         labelStyle: TextStyle(
           color: AppColors.primaryText,
-          fontSize: 15.sp,
+          fontSize: 14.sp,
           fontFamily: 'Avenir',
           fontWeight: FontWeight.normal,
         ),
@@ -70,12 +70,12 @@ class _ReusableTextFormFieldState extends State<ReusableTextFormField> {
           // borderSide: BorderSide(color: Colors.transparent),
           borderRadius: BorderRadius.circular(15.w),
           borderSide:
-              const BorderSide(color: AppColors.primaryFourthElementText),
+              const BorderSide(color: AppColors.primaryThirdElementText),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.w),
           borderSide:
-              const BorderSide(color: AppColors.primaryFourthElementText),
+              const BorderSide(color: AppColors.primaryThirdElementText),
         ),
         // border: const OutlineInputBorder(
         //   borderSide: BorderSide(color: Colors.transparent),
