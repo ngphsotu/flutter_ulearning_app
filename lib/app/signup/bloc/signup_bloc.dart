@@ -7,30 +7,30 @@ part 'signup_state.dart';
 
 class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
   SignUpBloc() : super(const SignUpState()) {
+    on<SignUpEvent>((event, emit) {});
     on<UsernameEvent>(_usernameEvent);
     on<EmailEvent>(_emailEvent);
     on<PasswordEvent>(_passwordEvent);
     on<RePasswordEvent>(_repasswordEvent);
-    // on<SignUpEvent>((event, emit) {});
   }
 
   void _usernameEvent(UsernameEvent event, Emitter<SignUpState> emit) {
     emit(state.copyWith(username: event.username));
-    print('My username is ${event.username}');
+    // print('Username: ${event.username} - (_usernameEvent)');
   }
 
   void _emailEvent(EmailEvent event, Emitter<SignUpState> emit) {
     emit(state.copyWith(email: event.email));
-    print('My email is ${event.email}');
+    // print('Email: ${event.email} - (_emailEvent)');
   }
 
   void _passwordEvent(PasswordEvent event, Emitter<SignUpState> emit) {
     emit(state.copyWith(password: event.password));
-    print('My password is ${event.password}');
+    // print('Password: ${event.password} - (_passwordEvent)');
   }
 
   void _repasswordEvent(RePasswordEvent event, Emitter<SignUpState> emit) {
     emit(state.copyWith(repassword: event.repassword));
-    print('My repassword is ${event.repassword}');
+    // print('Repassword: ${event.repassword} - (_repasswordEvent)');
   }
 }

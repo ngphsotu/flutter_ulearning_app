@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '/app/home/home.dart';
 import '/common/common.dart';
 import '/app/signup/signup.dart';
 import '/app/signin/signin.dart';
@@ -26,11 +27,11 @@ class AppPages {
         page: const SignUpPage(),
         bloc: BlocProvider(create: (_) => SignUpBloc()),
       ),
-      // PageEntity(
-      //   route: AppRoutes.HOME,
-      //   page: const WelcomePage(),
-      //   bloc: BlocProvider(create: (_) => SignUpBloc()),
-      // ),
+      PageEntity(
+        route: AppRoutes.appHOME,
+        page: const HomePage(),
+        bloc: BlocProvider(create: (_) => HomeBloc()),
+      ),
     ];
   }
 

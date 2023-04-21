@@ -55,6 +55,8 @@ Column formSignIn(BuildContext context) {
                 onPressed: () {
                   print('Press Login Button');
                   SignInController(context: context).handleEmailSignIn('email');
+                  // Navigator.of(context)
+                  //     .pushNamedAndRemoveUntil('/homePage', (route) => false);
                 },
               ),
             ),
@@ -72,8 +74,8 @@ Column formSignIn(BuildContext context) {
                 backgroundColor: AppColors.primaryBackground,
                 onPressed: () {
                   print('Press Signup Button');
-                  // SignUpController(context: context).handleEmailSignUp();
                   Navigator.of(context).pushNamed('/signUp');
+                  // SignUpController(context: context).handleEmailSignUp();
                   // Navigator.of(context).pushNamedAndRemoveUntil(
                   //     'signUp', (route) => false);
                 },

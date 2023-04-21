@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: avoid_print, use_build_context_synchronously
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,17 +22,11 @@ class SignInController {
         String password = state.password;
 
         if (emailAddress.isEmpty) {
-          //
           print('You need to fill email address');
           toastInfo(msg: 'You need to fill email address');
           return;
         }
-        // else {
-        //   print('Email is $emailAddress');
-        //   toastInfo(msg: 'Email is $emailAddress');
-        // }
         if (password.isEmpty) {
-          //
           print('You need to fill password');
           toastInfo(msg: 'You need to fill password');
           return;
@@ -44,13 +38,11 @@ class SignInController {
             password: password,
           );
           if (credential.user == null) {
-            //
             print('User does not exist');
             toastInfo(msg: 'You don\'t exist');
             return;
           }
           if (!credential.user!.emailVerified) {
-            //
             print('You need to verify your email account');
             toastInfo(msg: 'You need to verify your email account');
             return;
@@ -58,13 +50,15 @@ class SignInController {
 
           var user = credential.user;
           if (user != null) {
-            // Verified user from firebase
             print('User exist');
+            Navigator.of(context)
+                .pushNamedAndRemoveUntil('/homePage', (route) => false);
+            // Verified user from firebase
           } else {
-            // Error gettting user from firebase
             print('Currently you\'re not a user of this app');
             toastInfo(msg: 'Currently you\'re not a user of this app');
             return;
+            // Error gettting user from firebase
           }
         } on FirebaseAuthException catch (e) {
           if (e.code == 'user-not-found') {
