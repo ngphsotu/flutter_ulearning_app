@@ -7,7 +7,5 @@ abstract class HomeEvent {
 class TriggerHomeEvent extends HomeEvent {
   final int index;
 
-  const TriggerHomeEvent({
-    required this.index,
-  }) : super();
+  const TriggerHomeEvent({required this.index}) : super();
 }
