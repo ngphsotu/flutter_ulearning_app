@@ -22,25 +22,25 @@ class SignUpController {
     String repassword = state.repassword;
 
     if (username.isEmpty) {
-      print('Username can not be empty');
+      print('Username can not be empty - (handleEmailSignUp)');
       toastInfo(msg: 'Username can not be empty');
       return;
     }
 
     if (email.isEmpty) {
-      print('Email can not be empty');
+      print('Email can not be empty - (handleEmailSignUp)');
       toastInfo(msg: 'Email can not be empty');
       return;
     }
 
     if (password.isEmpty) {
-      print('Password can not be empty');
+      print('Password can not be empty - (handleEmailSignUp)');
       toastInfo(msg: 'Password can not be empty');
       return;
     }
 
     if (repassword.isEmpty) {
-      print('Your password confirmation is wrong');
+      print('Your password confirmation is wrong - (handleEmailSignUp)');
       toastInfo(msg: 'Your password confirmation is wrong');
       return;
     }
@@ -59,14 +59,14 @@ class SignUpController {
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
+        print('The password provided is too weak - (handleEmailSignUp)');
         toastInfo(msg: 'The password provided is too weak');
-        print('The password provided is too weak');
       } else if (e.code == 'email-already-in-use') {
+        print('The email is already in use - (handleEmailSignUp)');
         toastInfo(msg: 'The email is already in use');
-        print('The email is already in use');
       } else if (e.code == 'invalid-email') {
+        print('Your email id is invalid - (handleEmailSignUp)');
         toastInfo(msg: 'Your email id is invalid');
-        print('The password provided is too weak');
       }
     }
   }

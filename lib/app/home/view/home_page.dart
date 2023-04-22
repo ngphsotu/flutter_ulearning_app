@@ -42,90 +42,19 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
                 child: BottomNavigationBar(
+                  onTap: (value) {
+                    context
+                        .read<HomeBloc>()
+                        .add(TriggerHomeEvent(index: value));
+                  },
                   type: BottomNavigationBarType.fixed,
+                  items: bottomTabs,
                   elevation: 0,
                   currentIndex: state.index,
                   showSelectedLabels: false,
                   showUnselectedLabels: false,
                   selectedItemColor: AppColors.primaryElement,
                   unselectedItemColor: AppColors.primaryFourthElementText,
-                  onTap: (value) {
-                    context
-                        .read<HomeBloc>()
-                        .add(TriggerHomeEvent(index: value));
-                  },
-                  items: [
-                    BottomNavigationBarItem(
-                      label: 'home',
-                      icon: SizedBox(
-                        width: 15.w,
-                        height: 15.h,
-                        child: Image.asset('assets/icons/home.png'),
-                      ),
-                      activeIcon: SizedBox(
-                        child: Image.asset(
-                          'assets/icons/home.png',
-                          color: AppColors.primaryElement,
-                        ),
-                      ),
-                    ),
-                    BottomNavigationBarItem(
-                      label: 'search',
-                      icon: SizedBox(
-                        width: 15.w,
-                        height: 15.h,
-                        child: Image.asset('assets/icons/search2.png'),
-                      ),
-                      activeIcon: SizedBox(
-                        child: Image.asset(
-                          'assets/icons/search2.png',
-                          color: AppColors.primaryElement,
-                        ),
-                      ),
-                    ),
-                    BottomNavigationBarItem(
-                      label: 'course',
-                      icon: SizedBox(
-                        width: 15.w,
-                        height: 15.h,
-                        child: Image.asset('assets/icons/play-circle1.png'),
-                      ),
-                      activeIcon: SizedBox(
-                        child: Image.asset(
-                          'assets/icons/play-circle1.png',
-                          color: AppColors.primaryElement,
-                        ),
-                      ),
-                    ),
-                    BottomNavigationBarItem(
-                      label: 'chat',
-                      icon: SizedBox(
-                        width: 15.w,
-                        height: 15.h,
-                        child: Image.asset('assets/icons/message-circle.png'),
-                      ),
-                      activeIcon: SizedBox(
-                        child: Image.asset(
-                          'assets/icons/message-circle.png',
-                          color: AppColors.primaryElement,
-                        ),
-                      ),
-                    ),
-                    BottomNavigationBarItem(
-                      label: 'profile',
-                      icon: SizedBox(
-                        width: 15.w,
-                        height: 15.h,
-                        child: Image.asset('assets/icons/person2.png'),
-                      ),
-                      activeIcon: SizedBox(
-                        child: Image.asset(
-                          'assets/icons/person2.png',
-                          color: AppColors.primaryElement,
-                        ),
-                      ),
-                    ),
-                  ],
                 ),
               ),
             ),

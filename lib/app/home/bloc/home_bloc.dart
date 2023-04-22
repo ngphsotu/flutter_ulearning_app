@@ -10,7 +10,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     // on<HomeEvent>((event, emit) {});
     on<TriggerHomeEvent>((event, emit) {
       emit(HomeState(index: state.index));
-      print('My tapped index is ${event.index}');
+      print('My tapped index: ${event.index}');
     });
   }
 }

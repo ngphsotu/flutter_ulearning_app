@@ -22,12 +22,12 @@ class SignInController {
         String password = state.password;
 
         if (emailAddress.isEmpty) {
-          print('You need to fill email address');
+          print('You need to fill email address - (handleEmailSignIn)');
           toastInfo(msg: 'You need to fill email address');
           return;
         }
         if (password.isEmpty) {
-          print('You need to fill password');
+          print('You need to fill password - (handleEmailSignIn)');
           toastInfo(msg: 'You need to fill password');
           return;
         }
@@ -38,24 +38,26 @@ class SignInController {
             password: password,
           );
           if (credential.user == null) {
-            print('User does not exist');
+            print('User does not exist - (handleEmailSignIn)');
             toastInfo(msg: 'You don\'t exist');
             return;
           }
           if (!credential.user!.emailVerified) {
-            print('You need to verify your email account');
+            print(
+                'You need to verify your email account - (handleEmailSignIn)');
             toastInfo(msg: 'You need to verify your email account');
             return;
           }
 
           var user = credential.user;
           if (user != null) {
-            print('User exist');
+            print('User exist - move to home page - (handleEmailSignIn)');
             Navigator.of(context)
                 .pushNamedAndRemoveUntil('/homePage', (route) => false);
             // Verified user from firebase
           } else {
-            print('Currently you\'re not a user of this app');
+            print(
+                'Currently you\'re not a user of this app - (handleEmailSignIn)');
             toastInfo(msg: 'Currently you\'re not a user of this app');
             return;
             // Error gettting user from firebase
