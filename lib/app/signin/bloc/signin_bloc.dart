@@ -1,6 +1,6 @@
 // ignore_for_file: avoid_print
 
-import 'package:flutter_bloc/flutter_bloc.dart';
+import '/lib.dart';
 
 part 'signin_event.dart';
 part 'signin_state.dart';

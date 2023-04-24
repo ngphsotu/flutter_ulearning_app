@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 
 import '/lib.dart';
+import '/global.dart';
 import '../common.dart';
 import '/app/welcome/welcome.dart';
 
@@ -69,6 +70,12 @@ Column buildWelcomePage(
               //     MaterialPageRoute(
               //         builder: (context) => const HomePage(title: 'Home')),
               //  );
+              print('-1');
+              Global.storageService
+                  .setBool(AppConstants.STORAGE_DEVICE_OPEN_FIRST_TIME, true);
+              print('0');
+              print(
+                  'The value is ${Global.storageService.getDeviceFirstOpen()}');
               Navigator.of(context)
                   .pushNamedAndRemoveUntil('/signIn', (route) => false);
             }

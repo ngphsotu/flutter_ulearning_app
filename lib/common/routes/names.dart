@@ -1,10 +1,12 @@
+// ignore_for_file: constant_identifier_names
+
 class AppRoutes {
   // Welcome page or on boarding
-  static const appINITIAL = '/';
+  static const INITIAL = '/';
   // Home page
-  static const appHOME = '/homePage';
+  static const HOME = '/homePage';
   // Sign in page
-  static const appSIGNIN = '/signIn';
+  static const SIGNIN = '/signIn';
   // Sign up page
-  static const appSIGNUP = '/signUp';
+  static const SIGNUP = '/signUp';
 }

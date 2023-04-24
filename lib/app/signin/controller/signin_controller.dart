@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_print, use_build_context_synchronously
 
+import '../../../global.dart';
 import '/lib.dart';
 import '../signin.dart';
 import '/common/common.dart';
@@ -49,6 +50,8 @@ class SignInController {
           var user = credential.user;
           if (user != null) {
             print('User exist - move to home page - (handleEmailSignIn)');
+            Global.storageService
+                .setString(AppConstants.STORAGE_USER_TOKEN_KEY, '12345678');
             Navigator.of(context)
                 .pushNamedAndRemoveUntil('/homePage', (route) => false);
             // Verified user from firebase
