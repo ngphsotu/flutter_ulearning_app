@@ -1,12 +1,33 @@
-import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-
-import 'my_app.dart';
+import 'lib.dart';
+import 'global.dart';
+import 'common/common.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-      // option: DefaultFirebaseOptions.currentPlatform
-      );
+  await Global.init();
   runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiBlocProvider(
+      providers: [...AppPages.allBlocProviders(context)],
+      child: ScreenUtilInit(
+        builder: (context, child) => MaterialApp(
+          title: 'Flutter U-learning App',
+          onGenerateRoute: AppPages.generateRouteSettings,
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            appBarTheme: const AppBarTheme(
+              elevation: 0,
+              iconTheme: IconThemeData(color: AppColors.primaryText),
+              backgroundColor: AppColors.primaryBackground,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }
