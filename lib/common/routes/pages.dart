@@ -1,10 +1,8 @@
 // ignore_for_file: avoid_print
 
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '/app/home/home.dart';
+import '/lib.dart';
 import '/common/common.dart';
+import '/app/home/home.dart';
 import '/app/signup/signup.dart';
 import '/app/signin/signin.dart';
 import '/app/welcome/welcome.dart';

@@ -1,9 +1,6 @@
 // ignore_for_file: avoid_print
 
-import 'package:flutter/material.dart';
-import 'package:dots_indicator/dots_indicator.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import '/lib.dart';
 import '../common.dart';
 import '/app/welcome/welcome.dart';
 
